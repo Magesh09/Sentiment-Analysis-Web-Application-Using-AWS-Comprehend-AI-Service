@@ -95,8 +95,6 @@ AWS Comprehend is a natural language processing (NLP) service that uses machine 
 
 ## References
 
-- Check my [Broadcast](https://drive.google.com/file/d/1phKkabBhYRZ3BZBSjgWH-T8Yhvtq7ZUK/view?usp=sharing)
-
 - [AWS Comprehend Documentation](https://docs.aws.amazon.com/comprehend/latest/dg/what-is-comprehend.html)
 - [AWS Comprehend Image](https://your-image-url-here)
-- [Broadcast Video Link](https://your-broadcast-video-link-here)
+- [Broadcast Video Link](https://drive.google.com/file/d/1phKkabBhYRZ3BZBSjgWH-T8Yhvtq7ZUK/view?usp=sharing)
