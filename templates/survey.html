@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel STAY! Feedback Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .question-label {
+            display: block;
+            margin-bottom: 20px;
+        }
+        .progress {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function nextQuestion() {
+            const form = document.getElementById('surveyForm');
+            const feedback = document.getElementById('feedback').value;
+            if (feedback.trim() === '') {
+                alert('Please provide feedback before proceeding.');
+                return;
+            }
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel STAY! Customer Feedback Survey</h1>
+        <form id="surveyForm" action="{{ url_for('submit_feedback') }}" method="post">
+            <input type="hidden" name="question_number" value="{{ question_number }}">
+            
+            <!-- Display the current question -->
+            {% if question_number == 1 %}
+                <label for="feedback" class="question-label">1. How satisfied were you with the check-in process?</label>
+            {% elif question_number == 2 %}
+                <label for="feedback" class="question-label">2. How would you rate the cleanliness of your room?</label>
+            {% elif question_number == 3 %}
+                <label for="feedback" class="question-label">3. Was the hotel staff friendly and helpful?</label>
+            {% elif question_number == 4 %}
+                <label for="feedback" class="question-label">4. How would you rate the quality of the food served?</label>
+            {% elif question_number == 5 %}
+                <label for="feedback" class="question-label">5. Was the hotel's location convenient for your needs?</label>
+            {% elif question_number == 6 %}
+                <label for="feedback" class="question-label">6. How would you rate the comfort of your bed?</label>
+            {% elif question_number == 7 %}
+                <label for="feedback" class="question-label">7. Was the bathroom adequately stocked and maintained?</label>
+            {% elif question_number == 8 %}
+                <label for="feedback" class="question-label">8. How would you rate the value for money?</label>
+            {% elif question_number == 9 %}
+                <label for="feedback" class="question-label">9. Did you encounter any issues during your stay?</label>
+            {% elif question_number == 10 %}
+                <label for="feedback" class="question-label">10. Any other comments or suggestions?</label>
+            {% endif %}
+            
+            <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Your feedback here..."></textarea><br><br>
+
+            <!-- Progress Display -->
+            <div class="progress">
+                Question {{ question_number }} of 10
+            </div><br>
+
+            <button type="button" onclick="nextQuestion()">Next</button>
+        </form>
+    </div>
+</body>
+</html>
